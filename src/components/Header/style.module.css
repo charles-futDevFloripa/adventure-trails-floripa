@@ -1,0 +1,22 @@
+.header {
+  position: fixed;
+  width: 100vw;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.nav {
+  width: 70%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.link {
+  text-decoration: none;
+  margin: auto 2em;
+  color: var(--white);
+}

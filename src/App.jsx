@@ -1,28 +1,31 @@
 import CardTrilha from './components/CardTrilha';
+import Header from './components/Header';
 import './App.css';
+import useFetch from './hooks/useFetch';
+import { useEffect, useState } from 'react';
+
 function App() {
-  const listaTrilhas = [
-    {
-      nomeTrilha: 'Trilha da Costa da Lagoa',
-      cidade: 'Floripa',
-      estado: 'SC',
-      duracao: 120,
-      trajeto: 4,
-      dificuldade: 'Iniciante',
-      tipo: 'caminhada / trekking',
-      nomeUusario: 'João Ninguem',
-      urlImagem:
-        'https://images.pexels.com/photos/917510/pexels-photo-917510.jpeg',
-    },
-  ];
+  const [dados, isLoading] = useFetch('../data/dados.json');
+  const [trilhas, setTrilhas] = useState([]);
+
+  useEffect(() => {
+    if (!!dados) {
+      setTrilhas(dados.trilhas);
+    }
+  }, [dados]);
 
   return (
-    <div className='container'>
-      <h1 className='titulo'>Explore nossas trilhas</h1>
-      {listaTrilhas.map((trilha, index) => (
-        <CardTrilha dadosTrilha={trilha} key={index} />
-      ))}
-    </div>
+    <>
+      <Header />
+      <div className='container'>
+        <h1 className='titulo'>Explore trilhas incríveis</h1>
+        {Array.isArray(trilhas) &&
+          trilhas.map((trilha, index) => (
+            <CardTrilha dadosTrilha={trilha} key={index} />
+          ))}
+      </div>
+    </>
   );
 }
+
 export default App;

@@ -21,7 +21,7 @@ CardTrilha.propTypes = {
     trajeto: PropTypes.number.isRequired,
     dificuldade: PropTypes.string.isRequired,
     tipo: PropTypes.string.isRequired,
-    nomeUusario: PropTypes.string.isRequired,
+    nomeUsuario: PropTypes.string.isRequired,
     urlImagem: PropTypes.string.isRequired,
   }),
 };
