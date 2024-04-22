@@ -1,4 +1,5 @@
 import CardTrilha from './components/CardTrilha';
+import Header from './components/Header';
 import './App.css';
 import useFetch from './hooks/useFetch';
 import { useEffect, useState } from 'react';
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <div className='container'>
         <h1 className='titulo'>Explore trilhas incríveis</h1>
         {Array.isArray(trilhas) &&
