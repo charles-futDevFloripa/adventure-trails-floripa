@@ -1,16 +1,19 @@
 import styles from './style.module.css';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <header className={styles.header}>
-      <h4>Aventure Trails Floripa - FD</h4>
+      <Link to='/' className={styles.link}>
+        <h4>Aventure Trails Floripa - FD</h4>
+      </Link>
       <nav className={styles.nav}>
-        <a href='#' className={styles.link}>
+        <Link to='/lista-trilhas' className={styles.link}>
           Explorar Trilhas
-        </a>
-        <a href='#' className={styles.link}>
+        </Link>
+        <Link to='/cadastro-trilha' className={styles.link}>
           Cadastrar Trilhas
-        </a>
+        </Link>
       </nav>
     </header>
   );
