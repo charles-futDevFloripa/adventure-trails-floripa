@@ -1,16 +1,8 @@
-import useFetch from '../hooks/useFetch';
-import { useEffect, useState } from 'react';
 import CardTrilha from '../components/CardTrilha';
+import { useContext } from 'react';
+import { TrilhasContext } from '../context/TrilhasContext';
 function PaginaListaTrilhas() {
-  const [dados, isLoading] = useFetch('../data/dados.json');
-  const [trilhas, setTrilhas] = useState([]);
-
-  useEffect(() => {
-    if (!!dados) {
-      setTrilhas(dados.trilhas);
-    }
-  }, [dados]);
-
+  const { trilhas } = useContext(TrilhasContext);
   return (
     <div className='container'>
       <h1 className='titulo'>Explore trilhas incríveis</h1>
